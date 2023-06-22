@@ -1,0 +1,17 @@
+C# Classes 
+
+Exercício 1: Crie uma classe chamada "Retângulo" com os atributos: 
+largura (double) e altura (double). 
+Em seguida, implemente um método chamado "Calcular área" que 
+retorna a área do retângulo (largura * altura). 
+
+Exercício 2: Criar uma classe chamada “ContaBancaria” com dois atributos, nome(string) e saldo(double). 
+Em seguida crie um construtor para os dois atributos, 
+no final três métodos: depositar, levantamento e consulta. 
+No caso de levantamento devemos confirmar se existe saldo suficiente. 
+
+Exercício 3: Crie uma classe chamada "Produto" com os atributos: 
+nome (string), preço (double) e quanƟdade (int). 
+Implemente 2 métodos para interagir com a quanƟdade. 
+Implemente 1 método para alterar o preço. 
+Implemente 1 método que retorna o valor total do produto (preço * quanƟdade).

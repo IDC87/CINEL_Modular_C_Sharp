@@ -1,0 +1,15 @@
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/C#_Classes.csproj.AssemblyReference.cache
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/C#_Classes.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/C#_Classes.AssemblyInfoInputs.cache
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/C#_Classes.AssemblyInfo.cs
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/C#_Classes.csproj.CoreCompileInputs.cache
+/home/ivo/Documents/C#_Classes/bin/Debug/net7.0/C#_Classes
+/home/ivo/Documents/C#_Classes/bin/Debug/net7.0/C#_Classes.deps.json
+/home/ivo/Documents/C#_Classes/bin/Debug/net7.0/C#_Classes.runtimeconfig.json
+/home/ivo/Documents/C#_Classes/bin/Debug/net7.0/C#_Classes.dll
+/home/ivo/Documents/C#_Classes/bin/Debug/net7.0/C#_Classes.pdb
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/C#_Classes.dll
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/refint/C#_Classes.dll
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/C#_Classes.pdb
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/C#_Classes.genruntimeconfig.cache
+/home/ivo/Documents/C#_Classes/obj/Debug/net7.0/ref/C#_Classes.dll

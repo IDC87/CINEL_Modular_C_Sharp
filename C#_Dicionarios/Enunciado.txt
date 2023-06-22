@@ -1,0 +1,220 @@
+Exercício 1:  
+
+Crie um programa em c# que permita registar os nomes e as notas dos alunos de uma turma. 
+O programa deve permiƟr ao usuário inserir o nome e a nota de cada aluno, 
+armazenando essas informações em um dicionário.  
+Se o aluno não existir o programa deve criar uma chave nova, dando essa indicação. 
+Se já existr deve pedir confirmação antes de alterar a nota. 
+Em seguida, exiba a lista de alunos e suas respeƟvas notas.
+
+
+
+Exercício 2: 
+
+Modifique o programa anterior de forma que o uƟlizador tenha de escolher entre 3 disciplinas diferentes, 
+depois insere a nota do aluno na disciplina escolhida. 
+Depois de introduzida a nota, exiba a lista de alunos alterada. 
+O programa deve também ter uma opção para procurar o aluno e verificar de que disciplinas ele faz parte. 
+Se Ɵver inscrito em alguma deve apresentar as notas desse mesmo aluno e sua média.
+
+
+Dictionary<string, Dictionary<string, int>> Cadeiras = new Dictionary<string, Dictionary<string, int>>();
+
+// Assume the dictionary is populated with values
+
+foreach (var aluno in Cadeiras)
+{
+    Console.WriteLine("Aluno: " + aluno.Key);
+    foreach (var disciplina in aluno.Value)
+    {
+        Console.WriteLine("Disciplina: " + disciplina.Key + ", Nota: " + disciplina.Value);
+    }
+    Console.WriteLine("---------------------");
+}
+
+
+
+
+// Create the outer dictionary
+Dictionary<string, Dictionary<string, int>> Cadeiras = new Dictionary<string, Dictionary<string, int>>();
+
+// Create or access the inner dictionary for a specific key
+string aluno = "John";
+string disciplina = "Math";
+
+if (!Cadeiras.ContainsKey(aluno))
+{
+    // Create a new inner dictionary for the student if it doesn't exist
+    Cadeiras[aluno] = new Dictionary<string, int>();
+}
+
+// Add or modify elements in the inner dictionary
+Cadeiras[aluno][disciplina] = 90;
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+
+namespace ExerciciosTurma
+{
+    class Program
+    {
+        static void Main()
+        {
+            Dictionary<string, Dictionary<string, int>> turma = new Dictionary<string, Dictionary<string, int>>();
+            bool flag = true;
+            
+            Console.WriteLine("---- MENU ----");
+            Console.WriteLine("1 - Introduzir Nomes e Notas de Alunos");
+            Console.WriteLine("2 - Exibir Notas e Alunos");
+            Console.WriteLine("3 - Modificar Nota de um Aluno");
+            Console.WriteLine("4 - Procurar Aluno e Disciplinas");
+            Console.WriteLine("5 - Sair");
+            
+            while (flag)
+            {
+                Console.Write("\nOpção: ");
+                string input = Console.ReadLine();
+                
+                switch (input)
+                {
+                    case "1":
+                        Console.Clear();
+                        Console.WriteLine("---- Introduzir Nomes e Notas de Alunos ----");
+                        Console.WriteLine();
+                        
+                        Console.Write("Introduza o Nome do Aluno: ");
+                        string aluno = Console.ReadLine();
+                        
+                        Console.Write("Introduza a Disciplina: ");
+                        string disciplina = Console.ReadLine();
+                        
+                        Console.Write("Introduza a Nota: ");
+                        int nota = int.Parse(Console.ReadLine());
+                        
+                        if (turma.ContainsKey(aluno))
+                        {
+                            Console.WriteLine($"O aluno '{aluno}' já existe na turma!");
+                            Console.Write("Deseja alterar a nota? (s/n): ");
+                            string resposta = Console.ReadLine();
+                            
+                            if (resposta.ToLower() == "s")
+                            {
+                                turma[aluno][disciplina] = nota;
+                                Console.WriteLine($"Nota do aluno '{aluno}' na disciplina '{disciplina}' alterada para {nota}");
+                            }
+                        }
+                        else
+                        {
+                            turma[aluno] = new Dictionary<string, int>();
+                            turma[aluno][disciplina] = nota;
+                            Console.WriteLine($"Aluno '{aluno}' adicionado com nota {nota} na disciplina '{disciplina}'");
+                        }
+                        
+                        break;
+                    
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("---- Lista de Alunos e Respetivas Notas ----");
+                        Console.WriteLine();
+                        
+                        foreach (var alunoEntry in turma)
+                        {
+                            string alunoNome = alunoEntry.Key;
+                            var disciplinas = alunoEntry.Value;
+                            
+                            Console.WriteLine($"Aluno: {alunoNome}");
+                            
+                            foreach (var disciplinaEntry in disciplinas)
+                            {
+                                string disciplinaNome = disciplinaEntry.Key;
+                                int notaAluno = disciplinaEntry.Value;
+                                
+                                Console.WriteLine($"Disciplina: {disciplinaNome} - Nota: {notaAluno}");
+                            }
+                            
+                            Console.WriteLine();
+                        }
+                        
+                        break;
+                    
+                    case "3":
+                        Console.Clear();
+                        Console.WriteLine("---- Modificar Nota de um Aluno ----");
+                        Console.WriteLine();
+                        
+                        Console.Write("Introduza o Nome do Aluno: ");
+                        string alunoModificar = Console.ReadLine();
+                        
+                        if (turma.ContainsKey(alunoModificar))
+                        {
+                            Console.Write("Introduza a Disciplina: ");
+                            string disciplinaModificar = Console.ReadLine();
+                            
+                            if (turma[alunoModificar].ContainsKey(disciplinaModificar))
+                            {
+                                Console.Write("Introduza a Nova Nota: ");
+                                int novaNota = int.Parse(Console.ReadLine());
+                                
+                                turma[alunoModificar][disciplinaModificar] = novaNota;
+                                Console.WriteLine($"Nota do aluno '{alunoModificar}' na disciplina '{disciplinaModificar}' alterada para {novaNota}");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"O aluno '{alunoModificar}' não está inscrito na disciplina '{disciplinaModificar}'");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"O aluno '{alunoModificar}' não existe na turma");
+                        }
+                        
+                        break;
+                    
+                    case "4":
+                        Console.Clear();
+                        Console.WriteLine("---- Procurar Aluno e Disciplinas ----");
+                        Console.WriteLine();
+                        
+                        Console.Write("Introduza o Nome do Aluno: ");
+                        string alunoProcurar = Console.ReadLine();
+                        
+                        if (turma.ContainsKey(alunoProcurar))
+                        {
+                            var disciplinasAluno = turma[alunoProcurar];
+                            
+                            Console.WriteLine($"Aluno: {alunoProcurar}");
+                            Console.WriteLine("Disciplinas:");
+                            
+                            foreach (var disciplinaEntry in disciplinasAluno)
+                            {
+                                string disciplinaNome = disciplinaEntry.Key;
+                                int notaAluno = disciplinaEntry.Value;
+                                
+                                Console.WriteLine($"Disciplina: {disciplinaNome} - Nota: {notaAluno}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"O aluno '{alunoProcurar}' não existe na turma");
+                        }
+                        
+                        break;
+                    
+                    case "5":
+                        flag = false;
+                        break;
+                    
+                    default:
+                        Console.WriteLine("Opção inválida!");
+                        break;
+                }
+            }
+        }
+    }
+}
+

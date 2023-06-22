@@ -1,0 +1,15 @@
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/C#_Dicionarios.csproj.AssemblyReference.cache
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/C#_Dicionarios.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/C#_Dicionarios.AssemblyInfoInputs.cache
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/C#_Dicionarios.AssemblyInfo.cs
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/C#_Dicionarios.csproj.CoreCompileInputs.cache
+/home/ivo/Documents/C#_Dicionarios/bin/Debug/net7.0/C#_Dicionarios
+/home/ivo/Documents/C#_Dicionarios/bin/Debug/net7.0/C#_Dicionarios.deps.json
+/home/ivo/Documents/C#_Dicionarios/bin/Debug/net7.0/C#_Dicionarios.runtimeconfig.json
+/home/ivo/Documents/C#_Dicionarios/bin/Debug/net7.0/C#_Dicionarios.dll
+/home/ivo/Documents/C#_Dicionarios/bin/Debug/net7.0/C#_Dicionarios.pdb
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/C#_Dicionarios.dll
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/refint/C#_Dicionarios.dll
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/C#_Dicionarios.pdb
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/C#_Dicionarios.genruntimeconfig.cache
+/home/ivo/Documents/C#_Dicionarios/obj/Debug/net7.0/ref/C#_Dicionarios.dll

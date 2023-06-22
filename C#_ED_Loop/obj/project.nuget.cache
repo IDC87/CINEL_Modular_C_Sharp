@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "R2/XX7Jn17wMeMc/NTNkNluRxJcYDp6t36OFMGB+sR7Z2nop7xncSFbLxk4kTjErf4uZ+pj5cBf40I6BNcwU9A==",
+  "success": true,
+  "projectFilePath": "/home/ivo/Documents/C#_ED_Loop/C#_ED_Loop.csproj",
+  "expectedPackageFiles": [
+    "/home/ivo/.nuget/packages/microsoft.netcore.app.ref/7.0.5/microsoft.netcore.app.ref.7.0.5.nupkg.sha512",
+    "/home/ivo/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.5/microsoft.aspnetcore.app.ref.7.0.5.nupkg.sha512",
+    "/home/ivo/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.5/microsoft.netcore.app.host.linux-x64.7.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

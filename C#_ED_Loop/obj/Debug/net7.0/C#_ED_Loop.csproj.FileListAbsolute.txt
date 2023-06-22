@@ -1,0 +1,15 @@
+/home/ivo/Documents/C#_ED_Loop/bin/Debug/net7.0/C#_ED_Loop
+/home/ivo/Documents/C#_ED_Loop/bin/Debug/net7.0/C#_ED_Loop.deps.json
+/home/ivo/Documents/C#_ED_Loop/bin/Debug/net7.0/C#_ED_Loop.runtimeconfig.json
+/home/ivo/Documents/C#_ED_Loop/bin/Debug/net7.0/C#_ED_Loop.dll
+/home/ivo/Documents/C#_ED_Loop/bin/Debug/net7.0/C#_ED_Loop.pdb
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/C#_ED_Loop.csproj.AssemblyReference.cache
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/C#_ED_Loop.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/C#_ED_Loop.AssemblyInfoInputs.cache
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/C#_ED_Loop.AssemblyInfo.cs
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/C#_ED_Loop.csproj.CoreCompileInputs.cache
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/C#_ED_Loop.dll
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/refint/C#_ED_Loop.dll
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/C#_ED_Loop.pdb
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/C#_ED_Loop.genruntimeconfig.cache
+/home/ivo/Documents/C#_ED_Loop/obj/Debug/net7.0/ref/C#_ED_Loop.dll
