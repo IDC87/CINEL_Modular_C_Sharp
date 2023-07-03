@@ -1,0 +1,15 @@
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/C#_Inheritance_and_Polymorphism.csproj.AssemblyReference.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/C#_Inheritance_and_Polymorphism.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/C#_Inheritance_and_Polymorphism.AssemblyInfoInputs.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/C#_Inheritance_and_Polymorphism.AssemblyInfo.cs
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/C#_Inheritance_and_Polymorphism.csproj.CoreCompileInputs.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/bin/Debug/net7.0/C#_Inheritance_and_Polymorphism
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/bin/Debug/net7.0/C#_Inheritance_and_Polymorphism.deps.json
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/bin/Debug/net7.0/C#_Inheritance_and_Polymorphism.runtimeconfig.json
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/bin/Debug/net7.0/C#_Inheritance_and_Polymorphism.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/bin/Debug/net7.0/C#_Inheritance_and_Polymorphism.pdb
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/C#_Inheritance_and_Polymorphism.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/refint/C#_Inheritance_and_Polymorphism.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/C#_Inheritance_and_Polymorphism.pdb
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/C#_Inheritance_and_Polymorphism.genruntimeconfig.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_Inheritance_and_Polymorphism/obj/Debug/net7.0/ref/C#_Inheritance_and_Polymorphism.dll

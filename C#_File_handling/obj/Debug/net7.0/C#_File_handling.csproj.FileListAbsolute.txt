@@ -1,0 +1,15 @@
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/bin/Debug/net7.0/C#_File_handling
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/bin/Debug/net7.0/C#_File_handling.deps.json
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/bin/Debug/net7.0/C#_File_handling.runtimeconfig.json
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/bin/Debug/net7.0/C#_File_handling.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/bin/Debug/net7.0/C#_File_handling.pdb
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/C#_File_handling.csproj.AssemblyReference.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/C#_File_handling.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/C#_File_handling.AssemblyInfoInputs.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/C#_File_handling.AssemblyInfo.cs
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/C#_File_handling.csproj.CoreCompileInputs.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/C#_File_handling.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/refint/C#_File_handling.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/C#_File_handling.pdb
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/C#_File_handling.genruntimeconfig.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_File_handling/obj/Debug/net7.0/ref/C#_File_handling.dll

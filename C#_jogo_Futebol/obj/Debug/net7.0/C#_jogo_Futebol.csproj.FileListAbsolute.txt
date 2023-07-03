@@ -1,0 +1,15 @@
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/bin/Debug/net7.0/C#_jogo_Futebol
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/bin/Debug/net7.0/C#_jogo_Futebol.deps.json
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/bin/Debug/net7.0/C#_jogo_Futebol.runtimeconfig.json
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/bin/Debug/net7.0/C#_jogo_Futebol.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/bin/Debug/net7.0/C#_jogo_Futebol.pdb
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/C#_jogo_Futebol.csproj.AssemblyReference.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/C#_jogo_Futebol.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/C#_jogo_Futebol.AssemblyInfoInputs.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/C#_jogo_Futebol.AssemblyInfo.cs
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/C#_jogo_Futebol.csproj.CoreCompileInputs.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/C#_jogo_Futebol.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/refint/C#_jogo_Futebol.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/C#_jogo_Futebol.pdb
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/C#_jogo_Futebol.genruntimeconfig.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/C#_jogo_Futebol/obj/Debug/net7.0/ref/C#_jogo_Futebol.dll

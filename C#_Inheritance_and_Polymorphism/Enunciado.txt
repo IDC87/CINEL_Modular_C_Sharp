@@ -1,0 +1,15 @@
+C# Heranças e polimorfismo 
+
+Exercício 1 
+Crie uma classe chamada “pessoa” com 2 atributos, Nome, Idade; 
+Implemente um método “imprimir” que escreva em consola os dois atributos. 
+Crie uma Subclasse de pessoa chamada “aluno” com o atributo Curso. 
+Implemente um método imprimir que escreva os três atributos (2 da classe base + Curso). 
+
+Exercício 2  
+Crie uma classe chamada “ContaBancaria” com 3 atributos: Número de conta; Nome do Ɵtular;Saldo. 
+Implemente também 3 métodos: deposito, levantamento, Consulta. 
+Em seguida vamos criar a subclasse “ContaaPrazo” com um método que aplique 
+uma penalização aos levantamentos de 2%  
+No final vamos criar uma classe chamada “ContaOrdenado” com um atributo “ordenado” 
+que modifica o levantamento para autorizar um negaƟvo até ao valor de ordenado. 
