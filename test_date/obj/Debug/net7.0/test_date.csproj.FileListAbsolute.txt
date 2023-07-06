@@ -1,0 +1,15 @@
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/bin/Debug/net7.0/test_date
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/bin/Debug/net7.0/test_date.deps.json
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/bin/Debug/net7.0/test_date.runtimeconfig.json
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/bin/Debug/net7.0/test_date.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/bin/Debug/net7.0/test_date.pdb
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/test_date.csproj.AssemblyReference.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/test_date.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/test_date.AssemblyInfoInputs.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/test_date.AssemblyInfo.cs
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/test_date.csproj.CoreCompileInputs.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/test_date.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/refint/test_date.dll
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/test_date.pdb
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/test_date.genruntimeconfig.cache
+/home/ivo/Documents/CINEL_Modular_C_Sharp/test_date/obj/Debug/net7.0/ref/test_date.dll

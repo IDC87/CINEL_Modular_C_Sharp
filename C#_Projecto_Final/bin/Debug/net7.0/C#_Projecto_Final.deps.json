@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "C#_Projecto_Final/1.0.0": {
+        "runtime": {
+          "C#_Projecto_Final.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "C#_Projecto_Final/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
