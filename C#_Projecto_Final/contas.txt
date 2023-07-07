@@ -1,0 +1,14 @@
+Lista das Despesas:
+
+Tipo Despesa: meo
+Data Despesa: 01/01/1970
+Data Pagamento: 10/10/1970
+Montante: 45€
+Dias até ao pagamento: 282 dias
+
+Tipo Despesa: meo
+Data Despesa: 
+Data Pagamento: 
+Montante: 0€
+Dias até ao pagamento: 0 dias
+

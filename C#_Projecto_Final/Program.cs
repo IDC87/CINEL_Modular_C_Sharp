@@ -3,18 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Text;
-
-//  Contas: 
-//     - rendas ou prestação mensais
-//     - Água
-//     - Luz
-//     - Internet
-//     - telemóvel
-
-// tipo de despesa
-// data da despesa
-// data de pagamento
-// montante
+using System.Linq;
+using System.Globalization;
 
 // Black
 // DarkBlue
@@ -33,13 +23,60 @@ using System.Text;
 // Yellow
 // White
 
-namespace Despesas_de_casa
-{
+//namespace Despesas_de_casa
+//{
+    public class Despesas
+    {
+        public string s_tipo_despesa {get; set;}
+        public string s_data_despesa {get; set;}
+        public string s_data_pagamento {get; set;}
+        public decimal d_montante {get; set;}
+        public int dias_restantes {get; set;}
+    }
+
+    public class Gestao_despesas
+    {
+        public static void DisplayDespesas(List<Despesas> despesas)
+        {
+            Console.WriteLine("Lista das Despesas:");
+            
+            foreach (Despesas despesa in despesas)
+            {
+                Console.WriteLine($"Tipo Despesa: {despesa.s_tipo_despesa}");
+                Console.WriteLine($"Data Despesa: {despesa.s_data_despesa}");
+                Console.WriteLine($"Data Pagamento: {despesa.s_data_pagamento}");
+                Console.WriteLine($"Montante: {despesa.d_montante}€");
+                Console.WriteLine($"Dias até ao pagamento: {despesa.dias_restantes} dias");
+                Console.WriteLine();
+            }
+        }
+
+        public static void ExportDespesas(List<Despesas> despesas, string filePath)
+        {
+            using (StreamWriter exportar = new StreamWriter(filePath))
+            {
+                exportar.WriteLine("Lista das Despesas:");
+                exportar.WriteLine();
+                
+                foreach (Despesas despesa in despesas)
+                {
+                    exportar.WriteLine($"Tipo Despesa: {despesa.s_tipo_despesa}");
+                    exportar.WriteLine($"Data Despesa: {despesa.s_data_despesa}");
+                    exportar.WriteLine($"Data Pagamento: {despesa.s_data_pagamento}");
+                    exportar.WriteLine($"Montante: {despesa.d_montante}€");
+                    exportar.WriteLine($"Dias até ao pagamento: {despesa.dias_restantes} dias");
+                    exportar.WriteLine();
+                }
+
+            }
+        }
+    }
+    
     public class Tipo_Despesa
     {
-        public string? tipo_despesa;
-        private int n_despesa = 1;
-        public List <string> despesas = new List <string>();
+        public string? atual_despesa;
+        public int n_despesa = 1;
+        public List <Despesas> despesas = new List <Despesas>();
 
         public void despesa()
         {
@@ -53,69 +90,183 @@ namespace Despesas_de_casa
                 Program.transform_italic(" (Sair - 2)", 1);
                 Console.ResetColor();                
                
-                tipo_despesa = Program.read_all_input('2');
+                atual_despesa = Program.read_all_input('2');
                 
-                if(tipo_despesa == "2")
+                if(atual_despesa == "2")
                     break;
                 else
                 {                    
-                    if (despesas.Contains(tipo_despesa))
+                    /* if (despesas.Any(d => d.s_tipo_despesa == atual_despesa))
                     {
                         Console.Clear();
                         Program.title();
-                        Console.WriteLine("Despesa já introduzida!");  
-                        Console.ReadKey(); 
+                        Console.ForegroundColor = ConsoleColor.DarkRed;            
+                        Program.transform_italic("      Despesa já introduzida!", 1);
+                        Console.ResetColor();
+                        Thread.Sleep(900);
                     }
                     else
-                    {
-                        despesas.Add(tipo_despesa);   
+                    { */
+                        Despesas novaDespesa = new Despesas
+                        {
+                            s_tipo_despesa = atual_despesa
+                        };
+                        despesas.Add(novaDespesa);   
                         n_despesa++;
-                        Data_Despesa.data_despesa(despesas[^1]);
-                    }
+                        Data_Despesa.data_despesa(despesas, novaDespesa.s_tipo_despesa);
+                        Data_Pagamento.data_pagamento(despesas, novaDespesa.s_tipo_despesa);
+                        Montante.montante_despesa(despesas, novaDespesa.s_tipo_despesa);
+                    //}
                 }
-
             }
-            /* Console.Clear();
-            foreach(string element in despesas)
-                Console.WriteLine(element); */
+            Console.Clear();  
+            Gestao_despesas.DisplayDespesas(despesas);
+            string filePath = "contas.txt";
+            Gestao_despesas.ExportDespesas(despesas, filePath);            
+            Console.ReadKey();            
         }
     }
 
     public class Data_Despesa
     {
-        public static void data_despesa(string despesa_atual)
+        public static void data_despesa(List<Despesas> despesas, string despesa_atual)
         {
-            Console.Clear();
+            Console.Clear();            
             Program.title();           
-            Program.inserir_data($"Data de inicio da despesa {despesa_atual}");
-            
-
+            string s_data = Program.inserir_data($"Data de inicio da despesa {despesa_atual}");  
+            Despesas despesa = despesas.FirstOrDefault(d => d.s_tipo_despesa == despesa_atual);
+            if (despesa != null)
+                despesa.s_data_despesa = s_data;            
 
         }
-
-
-
     }
 
     public class Data_Pagamento
     {
-
+        public static void data_pagamento(List<Despesas> despesas, string despesa_atual)
+        {
+            while (true)
+            {
+                Console.Clear();            
+                Program.title();           
+                string s_data = Program.inserir_data($"Data de pagamento da despesa {despesa_atual}");  
+                Despesas despesa = despesas.FirstOrDefault(d => d.s_tipo_despesa == despesa_atual);
+                if (despesa != null)
+                    despesa.s_data_pagamento = s_data;
+                if(((Program.convert_date(despesa.s_data_pagamento)) - (Program.convert_date(despesa.s_data_despesa))) < 0) 
+                {
+                    Console.Clear();
+                    Program.title();
+                    Console.ForegroundColor = ConsoleColor.DarkRed;            
+                    Program.transform_italic("Data de pagamento não pode ser mais antiga que a data da despesa!", 1);
+                    Console.ResetColor();
+                    Thread.Sleep(2500);                                   
+                }
+                else
+                {
+                    int pagamento = (int)Program.convert_date(despesa.s_data_pagamento);
+                    int despesa_now = (int)Program.convert_date(despesa.s_data_despesa);
+                    despesa.dias_restantes = pagamento - despesa_now;
+                    despesa.dias_restantes = despesa.dias_restantes / 86400;                    
+                    break;
+                }
+            }
+        }
     }
 
     public class Montante
     {
+        public static void montante_despesa(List<Despesas> despesas, string despesa_atual)
+        {
+            Console.Clear();
+            Program.title();         
+            Program.transform_bold($"        Qual o valor da despesa {despesa_atual} em €?", 1);
+           
+            Despesas despesa = despesas.FirstOrDefault(d => d.s_tipo_despesa == despesa_atual);
+            if (despesa != null)
+            {
+                while (true)
+                {
+                    string montanteInput = Console.ReadLine() ?? string.Empty;
+                    if (decimal.TryParse(montanteInput, out decimal montante))
+                    {
+                        despesa.d_montante = montante;
+                        Console.WriteLine($"Montante atualizado: {despesa.d_montante}€");
+                        Thread.Sleep(1200);
+                        break;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Program.title();
+                        Console.ForegroundColor = ConsoleColor.DarkRed; 
+                        Console.WriteLine("               Valor Inválido!");
+                        Console.ResetColor();
+                        Thread.Sleep(900);
+                        Console.Clear();
+                        Program.title();
+                        Program.transform_bold($"        Qual o valor da despesa {despesa_atual} em €?", 1);
+                    }
+                }
+            }
+        }
+    }
+
+    public class Total_Despesas_ano
+    {
+        public static void DisplaySumByYear(List<Despesas> despesas)
+        {
+            var sumByYear = despesas.GroupBy(d => GetYear(d.s_data_despesa))
+                                .Select(g => new { Year = g.Key, Sum = g.Sum(d => d.d_montante) });
+            char c;
+            Console.Clear();
+            Program.title();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Program.transform_bold("Soma do Montante por Ano: (1 - para continuar, 2 - Sair)", 1);
+            Console.ResetColor();
+            foreach (var item in sumByYear)
+            {
+                Program.transform_bold("Ano: ", 0);
+                Console.Write(item.Year + ",");
+                 Program.transform_bold(" Acumulado: ", 0);
+                Console.WriteLine(item.Sum + "€");                
+                c = Program.read_key();
+                if (c == '2')
+                    break;
+                else if(c == '1')
+                    continue;
+            }
+        }
+        private static int GetYear(string date)
+        {
+            if (DateTime.TryParse(date, out DateTime dateTime))
+                return dateTime.Year;
+            
+            return 0; 
+        }
 
     }
 
+
     public class Program
     {
-        public static void inserir_data(string str)
+        public static long convert_date(string str)
         {
-            //Console.WriteLine("Enter a date in the format DD/MM/YYYY:");
+            string format = "dd/MM/yyyy";
+            DateTime date = DateTime.ParseExact(str, format, CultureInfo.InvariantCulture);
+            DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            TimeSpan timeSpan = date.ToUniversalTime() - unixEpoch;
+            long unixTime = (long)timeSpan.TotalSeconds;
+            return unixTime;
+        }
+
+        public static string inserir_data(string str)
+        {
             string day = "";
             string month = "";
             string year = "";
             bool flag = true;
+            string full_date = "";
 
             Program.transform_bold(str + " " + FormatDate(day, month, year), 1);
 
@@ -131,32 +282,22 @@ namespace Despesas_de_casa
                     if (keyInfo.Key == ConsoleKey.Backspace)
                     {
                         if (year.Length > 0)
-                        {
                             year = year.Substring(0, year.Length - 1);
-                        }
+                        
                         else if (month.Length > 0)
-                        {
                             month = month.Substring(0, month.Length - 1);
-                        }
+                        
                         else if (day.Length > 0)
-                        {
                             day = day.Substring(0, day.Length - 1);
-                        }
                     }
                     else if (char.IsDigit(keyInfo.KeyChar))
                     {
-                        if (day.Length < 2)
-                        {                   
+                        if (day.Length < 2)                  
                             day += keyInfo.KeyChar;
-                        }
                         else if (month.Length < 2)
-                        {
                             month += keyInfo.KeyChar;
-                        }
                         else if (year.Length < 4)
-                        {
                             year += keyInfo.KeyChar;
-                        }
                     }
 
                     Console.Clear();
@@ -181,7 +322,12 @@ namespace Despesas_de_casa
                 else
                     flag = false;
             }
-            Console.WriteLine("Entered Date: " + FormatDate(day, month, year));
+            full_date = day + "/" + month + "/" + year;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            transform_bold("      Data Validada com sucesso!", 1);
+            Console.ResetColor(); 
+            Thread.Sleep(900);
+            return full_date;
         }
 
         static string FormatDate(string day, string month, string year)
@@ -262,23 +408,34 @@ namespace Despesas_de_casa
         // funcao que guarda todo o readInput e vai mostrando no terminal o que e escrito mas faz o que a funcao read_key tmb faz
         public static string read_all_input(char c)
         {
-            
             StringBuilder str = new StringBuilder();
             ConsoleKeyInfo pressedkey;
+            
             do
             {
                 pressedkey = Console.ReadKey(intercept: true);
-                if (pressedkey.Key != ConsoleKey.Enter)
+                
+                if (pressedkey.Key == ConsoleKey.Backspace)
+                {
+                    if (str.Length > 0)
+                    {
+                        str.Length--;
+                        Console.Write("\b \b"); 
+                    }
+                }
+                else if (pressedkey.Key != ConsoleKey.Enter)
                 {
                     str.Append(pressedkey.KeyChar);
                     Console.Write(pressedkey.KeyChar);
-                    if(str[0] == c)
+                    
+                    if (str[0] == c)
                     {
                         Thread.Sleep(300);
                         return "2";
                     }
                 }
-            }while(pressedkey.Key != ConsoleKey.Enter);
+            } while (pressedkey.Key != ConsoleKey.Enter);
+            
             string UserStr = str.ToString();
             Console.WriteLine(UserStr);
             return UserStr;
@@ -302,43 +459,56 @@ namespace Despesas_de_casa
 
         static int Menu()
         {
+            char menu_inicial;
+            
             Console.Clear();
             title();
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
-            Console.Clear();
-            title();
-
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("1 - Adicionar Despesa");
+            transform_bold("1 - Adicionar Despesa", 1);
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            transform_bold("2 - Visualizar o total de despesas por Ano", 1);
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            transform_bold("3 - Visualizar o total de despesas tipo de Despesa", 1);
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("2 - Sair\n");
+            transform_bold("4 - Sair\n", 0);
             Console.ResetColor();
             
-            char menu_inicial = read_key();
+            menu_inicial = read_key();
             Thread.Sleep(300);
 
-            while(menu_inicial != '2')
+            while(menu_inicial != '4')
             {
                 if (menu_inicial == '1')
                     return 1;
-                else if (menu_inicial != '2')
+                else if (menu_inicial == '2')
+                    return 2;
+                 else if (menu_inicial == '3')
+                    return 3;
+                else
                 {
                     Console.Clear();
                     title();
-                    Console.WriteLine("Opção Errada!\n");
-
-                    Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine("1 - Adicionar Despesa");
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("2 - Sair\n");
+                    transform_italic("      Opção Errada!\n", 1);
+                    Console.ResetColor();
+                    Thread.Sleep(900);
+                    Console.Clear();
+                    title();
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    transform_bold("1 - Adicionar Despesa", 1);
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    transform_bold("2 - Visualizar o total de despesas por Ano", 1);
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    transform_bold("3 - Visualizar o total de despesas tipo de Despesa", 1);
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    transform_bold("4 - Sair\n", 0);
                     Console.ResetColor();
 
                     menu_inicial = read_key();
                     Thread.Sleep(300);
                 }
             }
-            return 0;
+            return 4;
         }
 
         static void Credits()
@@ -360,24 +530,62 @@ namespace Despesas_de_casa
                 ";
             Console.WriteLine(signature);
         }
+
         static void Main(string[] args)
-        {
-            if (Menu() == 1)
+        {            
+            Console.Clear(); // COMENTAR ISTO PARA VER OS WARNINGS
+            title();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            Tipo_Despesa tipoDespesa = new Tipo_Despesa();
+            int menuOption = Menu();
+
+            while(true)
             {
-                //Console.Clear();
-                Tipo_Despesa tipoDespesa = new Tipo_Despesa();
-                title();
-                tipoDespesa.despesa();
+                if (menuOption == 1)
+                {                
+                    title();
+                    tipoDespesa.despesa();  
+                    menuOption = Menu();
+                              
+                }
+                else if (menuOption == 2)
+                {
+                    if (tipoDespesa.n_despesa == 1)
+                    {
+                        Console.Clear();
+                        title();
+                        transform_bold("Nenhuma despesa ainda inserida", 1);
+                        Thread.Sleep(900);
+                        menuOption = Menu();                        
+                    }
+                    else                    
+                        Total_Despesas_ano.DisplaySumByYear(tipoDespesa.despesas);
+                }
+                else if (menuOption == 3)
+                {
+                    if (tipoDespesa.n_despesa == 1)
+                    {
+                        Console.Clear();
+                        title();
+                        transform_bold("Nenhuma despesa ainda inserida", 1);
+                        Thread.Sleep(900);
+                        menuOption = Menu();                        
+                    }
+
+                }
+                else if (menuOption == 4)
+                {
+                    break;
+
+                }
             }
 
             Credits();
-
-        
-
-        
-
-
         }
     }
+//}
+
+        
+
     
-}

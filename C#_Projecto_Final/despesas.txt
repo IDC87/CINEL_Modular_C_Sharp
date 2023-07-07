@@ -1,0 +1,26 @@
+Lista das Despesas:
+
+Tipo Despesa: Meo
+Data Despesa: 06/07/2023
+Data Pagamento: 06/08/2023
+Montante: 39.23€
+Dias até ao pagamento: 31 dias
+
+Tipo Despesa: Net
+Data Despesa: 10/06/2023
+Data Pagamento: 20/08/2023
+Montante: 40.55€
+Dias até ao pagamento: 71 dias
+
+Tipo Despesa: Renda
+Data Despesa: 02/07/2023
+Data Pagamento: 02/07/2023
+Montante: 370.42€
+Dias até ao pagamento: 0 dias
+
+Tipo Despesa: Consdominio
+Data Despesa: 01/08/2023
+Data Pagamento: 30/12/2023
+Montante: 450€
+Dias até ao pagamento: 151 dias
+

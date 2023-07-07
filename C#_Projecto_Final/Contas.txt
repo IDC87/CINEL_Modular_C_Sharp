@@ -1,0 +1,8 @@
+Lista das Despesas:
+
+Tipo Despesa: net
+Data Despesa: 23/12/2022
+Data Pagamento: 12/12/2024
+Montante: 34€
+Dias até ao pagamento: 720 dias
+
