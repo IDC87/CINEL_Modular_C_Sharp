@@ -76,6 +76,7 @@ using System.Globalization;
     {
         public string? atual_despesa;
         public int n_despesa = 1;
+        public int counter = 0;
         public List <Despesas> despesas = new List <Despesas>();
 
         public void despesa()
@@ -96,8 +97,11 @@ using System.Globalization;
                     break;
                 else
                 {                    
-                    if (despesas.Any(d => d.s_tipo_despesa == atual_despesa))           
-                        atual_despesa = atual_despesa + "#" + n_despesa;                                     
+                    if (despesas.Any(d => d.s_tipo_despesa == atual_despesa)) 
+                    {
+                        counter++;
+                        atual_despesa = atual_despesa + "#" + counter;                                     
+                    }          
                     
                     Despesas novaDespesa = new Despesas
                     {
@@ -113,6 +117,7 @@ using System.Globalization;
             }
             Console.Clear();  
             Gestao_despesas.DisplayDespesas(despesas);
+            Program.transform_italic("Press any key to continue...", 1);
             string filePath = "contas.txt";
             Gestao_despesas.ExportDespesas(despesas, filePath);            
             Console.ReadKey();            
@@ -183,7 +188,9 @@ using System.Globalization;
                     if (decimal.TryParse(montanteInput, out decimal montante))
                     {
                         despesa.d_montante = montante;
-                        Console.WriteLine($"Montante atualizado: {despesa.d_montante}€");
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Program.transform_italic($"2Montante registado: {despesa.d_montante}€", 1);
+                        Console.ResetColor();
                         Thread.Sleep(1200);
                         break;
                     }
@@ -216,17 +223,28 @@ using System.Globalization;
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Program.transform_bold("Soma do Montante por Ano: (1 - para continuar, 2 - Sair)", 1);
             Console.ResetColor();
-            foreach (var item in sumByYear)
+
+            bool exitLoop = false;
+            var numerador = sumByYear.GetEnumerator();
+
+            while (!exitLoop && numerador.MoveNext())
             {
+                var item = numerador.Current;
                 Program.transform_bold("Ano: ", 0);
                 Console.Write(item.Year + ",");
-                 Program.transform_bold(" Acumulado: ", 0);
-                Console.WriteLine(item.Sum + "€");                
+                Program.transform_bold(" Acumulado: ", 0);
+                Console.WriteLine(item.Sum + "€");
+
                 c = Program.read_key();
+
                 if (c == '2')
-                    break;
-                else if(c == '1')
+                {
+                    exitLoop = true;                    
+                   break;
+                }
+                else if (c == '1')
                     continue;
+                
             }
         }
         private static int GetYear(string date)
@@ -243,7 +261,7 @@ using System.Globalization;
     {
         public static decimal SumMontanteByTipoDespesas(List<Despesas> despesas)
         {
-            Console.WriteLine("Enter the tipo_despesas:");
+            Program.transform_bold("Indique a despesa a pesquisar: ", 1);
             string tipoDespesas = Console.ReadLine();
 
             decimal totalSum = 0;
@@ -551,7 +569,7 @@ using System.Globalization;
         {            
             Console.Clear(); // COMENTAR ISTO PARA VER OS WARNINGS
             title();
-            Console.WriteLine("Press any key to continue...");
+            transform_italic("Press any key to continue...", 1);
             Console.ReadKey();
             Tipo_Despesa tipoDespesa = new Tipo_Despesa();
             int menuOption = Menu();
@@ -575,8 +593,11 @@ using System.Globalization;
                         Thread.Sleep(900);
                         menuOption = Menu();                        
                     }
-                    else                    
+                    else 
+                    {
                         Total_Despesas_ano.DisplaySumByYear(tipoDespesa.despesas);
+                        menuOption = Menu();
+                    }                   
                 }
                 else if (menuOption == 3)
                 {
@@ -593,20 +614,30 @@ using System.Globalization;
                         Console.Clear();
                         title();
                         decimal total_por_tipo = Total_Despesas_tipo.SumMontanteByTipoDespesas(tipoDespesa.despesas);
-                        transform_bold("Total de Despesas Por tipo", 1);
-                        Console.WriteLine(total_por_tipo);
-                        Console.ReadKey();
+                        
+                        if(total_por_tipo != 0)
+                        {
+                            transform_bold("Total de Despesas Por tipo", 1);
+                            Console.Write(total_por_tipo);
+                            Console.WriteLine("€");
+                            Thread.Sleep(900);
+                            transform_italic("\nPress any key to continue...", 1);
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            transform_italic("Registo nao existente ou despesa Nula", 1);
+                            Console.ResetColor();
+                            Thread.Sleep(900);
+                        }                        
                         menuOption = Menu();
                     }
 
                 }
                 else if (menuOption == 4)
-                {
-                    break;
-
-                }
+                    break;                
             }
-
             Credits();
         }
     }
