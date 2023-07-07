@@ -23,13 +23,12 @@ using System.Globalization;
 // Yellow
 // White
 
-//namespace Despesas_de_casa
-//{
+
     public class Despesas
     {
-        public string s_tipo_despesa {get; set;}
-        public string s_data_despesa {get; set;}
-        public string s_data_pagamento {get; set;}
+        public string? s_tipo_despesa {get; set;}
+        public string? s_data_despesa {get; set;}
+        public string? s_data_pagamento {get; set;}
         public decimal d_montante {get; set;}
         public int dias_restantes {get; set;}
     }
@@ -132,7 +131,7 @@ using System.Globalization;
             Program.title();           
             string s_data = Program.inserir_data($"Data de inicio da despesa {despesa_atual}");  
             Despesas despesa = despesas.FirstOrDefault(d => d.s_tipo_despesa == despesa_atual);
-            if (despesa != null)
+            if (s_data != null)
                 despesa.s_data_despesa = s_data;            
 
         }
@@ -146,7 +145,7 @@ using System.Globalization;
             {
                 Console.Clear();            
                 Program.title();           
-                string s_data = Program.inserir_data($"Data de pagamento da despesa {despesa_atual}");  
+                string? s_data = Program.inserir_data($"Data de pagamento da despesa {despesa_atual}");  
                 Despesas despesa = despesas.FirstOrDefault(d => d.s_tipo_despesa == despesa_atual);
                 if (despesa != null)
                     despesa.s_data_pagamento = s_data;
@@ -189,7 +188,7 @@ using System.Globalization;
                     {
                         despesa.d_montante = montante;
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
-                        Program.transform_italic($"2Montante registado: {despesa.d_montante}€", 1);
+                        Program.transform_italic($"Montante registado: {despesa.d_montante}€", 1);
                         Console.ResetColor();
                         Thread.Sleep(1200);
                         break;
@@ -262,14 +261,14 @@ using System.Globalization;
         public static decimal SumMontanteByTipoDespesas(List<Despesas> despesas)
         {
             Program.transform_bold("Indique a despesa a pesquisar: ", 1);
-            string tipoDespesas = Console.ReadLine();
+            string tipoDespesas = Console.ReadLine() ?? string.Empty;
 
             decimal totalSum = 0;
 
             foreach (var despesa in despesas)
             {
                 int index = despesa.s_tipo_despesa.IndexOf('#');
-                string tipoDespesa = (index >= 0) ? despesa.s_tipo_despesa.Substring(0, index) : despesa.s_tipo_despesa;
+                string? tipoDespesa = (index >= 0) ? despesa.s_tipo_despesa.Substring(0, index) : despesa.s_tipo_despesa;
 
                 if (tipoDespesa == tipoDespesas)
                 {
@@ -286,7 +285,7 @@ using System.Globalization;
     {
         public static long convert_date(string str)
         {
-            string format = "dd/MM/yyyy";
+            string? format = "dd/MM/yyyy";
             DateTime date = DateTime.ParseExact(str, format, CultureInfo.InvariantCulture);
             DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             TimeSpan timeSpan = date.ToUniversalTime() - unixEpoch;
@@ -296,11 +295,11 @@ using System.Globalization;
 
         public static string inserir_data(string str)
         {
-            string day = "";
-            string month = "";
-            string year = "";
+            string? day = "";
+            string? month = "";
+            string? year = "";
             bool flag = true;
-            string full_date = "";
+            string? full_date = "";
 
             Program.transform_bold(str + " " + FormatDate(day, month, year), 1);
 
@@ -470,7 +469,7 @@ using System.Globalization;
                 }
             } while (pressedkey.Key != ConsoleKey.Enter);
             
-            string UserStr = str.ToString();
+            string? UserStr = str.ToString();
             Console.WriteLine(UserStr);
             return UserStr;
         }
@@ -554,7 +553,7 @@ using System.Globalization;
             transform_bold("MADE BY: ", 1);
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            string signature = @"
+            string? signature = @"
              _   _      _    _______
             | | | |    | |  /  ___  \  
             | | | |    | | /  /   \  \
@@ -567,9 +566,24 @@ using System.Globalization;
 
         static void Main(string[] args)
         {            
-            Console.Clear(); // COMENTAR ISTO PARA VER OS WARNINGS
+            Console.Clear();  //COMENTAR ISTO PARA VER OS WARNINGS
             title();
-            transform_italic("Press any key to continue...", 1);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            transform_bold("------------- Adicionar Despesas", 1);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            transform_bold("------------- Datas das Despesas", 1);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            transform_bold("------------- Limite de Pagamento ao dia", 1);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            transform_bold("------------- Filtro por tipo Despesa", 1);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            transform_bold("------------- Filtro por Ano", 1);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            transform_bold("------------- Calculo dos Dias Restantes para Pagamento", 1);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            transform_bold("------------- Exportão Automatica para .txt", 1);
+            Console.ResetColor();
+            transform_italic("\nPress any key to continue...", 1);
             Console.ReadKey();
             Tipo_Despesa tipoDespesa = new Tipo_Despesa();
             int menuOption = Menu();
@@ -641,7 +655,6 @@ using System.Globalization;
             Credits();
         }
     }
-//}
 
         
 

@@ -1,8 +1,50 @@
 Lista das Despesas:
 
 Tipo Despesa: meo
-Data Despesa: 01/01/1999
-Data Pagamento: 02/02/2000
-Montante: 34€
-Dias até ao pagamento: 397 dias
+Data Despesa: 01/01/2001
+Data Pagamento: 02/02/2001
+Montante: 35€
+Dias até ao pagamento: 32 dias
+
+Tipo Despesa: renda
+Data Despesa: 30/12/2022
+Data Pagamento: 02/02/2023
+Montante: 370.71€
+Dias até ao pagamento: 34 dias
+
+Tipo Despesa: renda#1
+Data Despesa: 12/12/2023
+Data Pagamento: 03/03/2024
+Montante: 389.50€
+Dias até ao pagamento: 82 dias
+
+Tipo Despesa: luz
+Data Despesa: 01/03/2022
+Data Pagamento: 30/04/2022
+Montante: 107.15€
+Dias até ao pagamento: 59 dias
+
+Tipo Despesa: renda#2
+Data Despesa: 11/03/1987
+Data Pagamento: 11/06/1987
+Montante: 86.15€
+Dias até ao pagamento: 91 dias
+
+Tipo Despesa: telemovel
+Data Despesa: 03/04/2023
+Data Pagamento: 20/08/2023
+Montante: 11.25€
+Dias até ao pagamento: 139 dias
+
+Tipo Despesa: agua
+Data Despesa: 01/01/2021
+Data Pagamento: 11/04/2021
+Montante: 35.80€
+Dias até ao pagamento: 99 dias
+
+Tipo Despesa: prime
+Data Despesa: 01/01/2020
+Data Pagamento: 04/04/2021
+Montante: 4€
+Dias até ao pagamento: 458 dias
 
