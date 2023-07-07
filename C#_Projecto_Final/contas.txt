@@ -1,14 +1,26 @@
 Lista das Despesas:
 
-Tipo Despesa: meo
+Tipo Despesa: net
 Data Despesa: 01/01/1970
-Data Pagamento: 10/10/1970
-Montante: 45€
-Dias até ao pagamento: 282 dias
+Data Pagamento: 02/02/2000
+Montante: 30€
+Dias até ao pagamento: 10989 dias
 
 Tipo Despesa: meo
-Data Despesa: 
-Data Pagamento: 
-Montante: 0€
-Dias até ao pagamento: 0 dias
+Data Despesa: 01/01/2000
+Data Pagamento: 20/03/2000
+Montante: 59€
+Dias até ao pagamento: 79 dias
+
+Tipo Despesa: net#3
+Data Despesa: 23/12/2020
+Data Pagamento: 21/05/2022
+Montante: 5€
+Dias até ao pagamento: 513 dias
+
+Tipo Despesa: net#4
+Data Despesa: 01/02/2000
+Data Pagamento: 02/02/2000
+Montante: 150€
+Dias até ao pagamento: 1 dias
 

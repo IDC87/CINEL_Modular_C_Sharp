@@ -96,27 +96,19 @@ using System.Globalization;
                     break;
                 else
                 {                    
-                    /* if (despesas.Any(d => d.s_tipo_despesa == atual_despesa))
+                    if (despesas.Any(d => d.s_tipo_despesa == atual_despesa))           
+                        atual_despesa = atual_despesa + "#" + n_despesa;                                     
+                    
+                    Despesas novaDespesa = new Despesas
                     {
-                        Console.Clear();
-                        Program.title();
-                        Console.ForegroundColor = ConsoleColor.DarkRed;            
-                        Program.transform_italic("      Despesa já introduzida!", 1);
-                        Console.ResetColor();
-                        Thread.Sleep(900);
-                    }
-                    else
-                    { */
-                        Despesas novaDespesa = new Despesas
-                        {
-                            s_tipo_despesa = atual_despesa
-                        };
-                        despesas.Add(novaDespesa);   
-                        n_despesa++;
-                        Data_Despesa.data_despesa(despesas, novaDespesa.s_tipo_despesa);
-                        Data_Pagamento.data_pagamento(despesas, novaDespesa.s_tipo_despesa);
-                        Montante.montante_despesa(despesas, novaDespesa.s_tipo_despesa);
-                    //}
+                        s_tipo_despesa = atual_despesa
+                    };
+                    despesas.Add(novaDespesa);   
+                    n_despesa++;
+                    Data_Despesa.data_despesa(despesas, novaDespesa.s_tipo_despesa);
+                    Data_Pagamento.data_pagamento(despesas, novaDespesa.s_tipo_despesa);
+                     Montante.montante_despesa(despesas, novaDespesa.s_tipo_despesa);
+                    
                 }
             }
             Console.Clear();  
@@ -245,6 +237,30 @@ using System.Globalization;
             return 0; 
         }
 
+    }
+
+    public class Total_Despesas_tipo
+    {
+        public static decimal SumMontanteByTipoDespesas(List<Despesas> despesas)
+        {
+            Console.WriteLine("Enter the tipo_despesas:");
+            string tipoDespesas = Console.ReadLine();
+
+            decimal totalSum = 0;
+
+            foreach (var despesa in despesas)
+            {
+                int index = despesa.s_tipo_despesa.IndexOf('#');
+                string tipoDespesa = (index >= 0) ? despesa.s_tipo_despesa.Substring(0, index) : despesa.s_tipo_despesa;
+
+                if (tipoDespesa == tipoDespesas)
+                {
+                    totalSum += despesa.d_montante;
+                }
+            }
+
+            return totalSum;
+        }
     }
 
 
@@ -571,6 +587,16 @@ using System.Globalization;
                         transform_bold("Nenhuma despesa ainda inserida", 1);
                         Thread.Sleep(900);
                         menuOption = Menu();                        
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        title();
+                        decimal total_por_tipo = Total_Despesas_tipo.SumMontanteByTipoDespesas(tipoDespesa.despesas);
+                        transform_bold("Total de Despesas Por tipo", 1);
+                        Console.WriteLine(total_por_tipo);
+                        Console.ReadKey();
+                        menuOption = Menu();
                     }
 
                 }
