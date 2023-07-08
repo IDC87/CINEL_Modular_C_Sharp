@@ -653,6 +653,8 @@ using System.Globalization;
                     break;                
             }
             Credits();
+            transform_italic("Press any key to Exit...", 1);
+            Console.ReadKey();
         }
     }
 
